@@ -1,0 +1,183 @@
+/* src/styles/Careers.module.css */
+
+.pageTitle {
+  text-align: center;      /* center the heading */
+  font-size: 2.5rem;       /* bigger font for emphasis */
+  color: #0070f3;          /* brand blue */
+  margin-bottom: 1.5rem;   /* space below */
+}
+
+.aboutCard {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;                 /* slightly more rounded */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* a bit deeper shadow */
+  color: #333;
+  line-height: 1.6;
+}
+.aboutCard h2 {
+  margin: 0 0 0.75rem 0;
+  color: #0070f3;
+  font-size: 1.75rem;
+}
+.aboutCard p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Optional Filter Bar (search + location dropdown) */
+.filterBar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.searchInput,
+.locationSelect {
+  flex: 1 1 200px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.searchButton {
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.searchButton:hover {
+  background-color: #005bb5;
+}
+
+/* Grid of job cards */
+.jobGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 768px) {
+  .jobGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.jobCard {
+background-color: #fff;
+
+border-radius: 4px;
+
+box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+
+background-color: #ffffff;
+
+border-radius: 6px;
+
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.jobCard:hover {
+
+transform: translateY(-2px);
+
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+transform: translateY(-4px);
+
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.jobLink {
+display: block;
+padding: 1rem;
+text-decoration: none;
+color: inherit;
+}
+.jobTitle {
+margin: 0 0 0.5rem 0;
+font-size: 1.25rem; /* slightly bigger than before */
+color: #0070f3;
+}
+.jobLocation {
+margin: 0;
+font-size: 0.95rem;
+color: #555;
+}
+.jobCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.jobLink {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+.jobTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 18px;
+  color: #0070f3;
+}
+.jobLocation {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Back link on detail page */
+.backLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #0070f3;
+  font-size: 14px;
+  text-decoration: none;
+}
+.backLink:hover {
+  text-decoration: underline;
+}
+
+/* Job detail container */
+.jobContainer {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin: 0 auto; /* center */
+  max-width: 700px;
+}
+.jobDetailTitle {
+  font-size: 28px;
+  margin: 0 0 0.5rem 0;
+  color: #222;
+}
+.jobLocationItalic {
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  color: #555;
+}
+.jobDescription {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #333;
+}
+.applyButton {
+  display: inline-block;
+  background-color: #0070f3;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+.applyButton:hover {
+  background-color: #005bb5;
+}
+
