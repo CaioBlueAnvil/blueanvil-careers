@@ -1,34 +1,29 @@
 // src/pages/careers/[slug].js
 
+import Link from "next/link";
+import Layout from "../../components/Layout";
 import { fetchJobs } from "../../../lib/jobs";
+import styles from "../../styles/Careers.module.css";
 
 export default function JobDetail({ job }) {
   return (
-    <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
-      <h1>{job["Job Name"]}</h1>
-      <p style={{ fontStyle: "italic", marginBottom: "1rem" }}>
-        Location: {job["Location"]}
-      </p>
-      <section
-        className="description"
-        dangerouslySetInnerHTML={{ __html: job["Description"] }}
-        style={{ marginBottom: "2rem", lineHeight: "1.6" }}
-      />
-      <a
-        href={job["Form URL"]}
-        style={{
-          display: "inline-block",
-          backgroundColor: "#0070f3",
-          color: "#ffffff",
-          padding: "0.75rem 1.25rem",
-          borderRadius: "4px",
-          textDecoration: "none",
-          fontWeight: "bold",
-        }}
-      >
-        Apply Online
-      </a>
-    </div>
+    <Layout>
+      <Link href="/careers" className={styles.backLink}>
+        ← Back to Careers
+      </Link>
+
+      <div className={styles.jobContainer}>
+        <h1 className={styles.jobDetailTitle}>{job["Job Name"]}</h1>
+        <p className={styles.jobLocationItalic}>Location: {job["Location"]}</p>
+        <section
+          className={styles.jobDescription}
+          dangerouslySetInnerHTML={{ __html: job["Description"] }}
+        />
+        <a href={job["Form URL"]} className={styles.applyButton}>
+          Apply Online
+        </a>
+      </div>
+    </Layout>
   );
 }
 

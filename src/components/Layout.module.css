@@ -1,0 +1,80 @@
+/* src/components/Layout.module.css */
+
+
+/* Container to center content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.header {
+  background-color: #222;
+  color: #fff;
+  padding: 1rem 0 1.5rem 0;
+}
+
+/* Logo (still local) */
+.logo img {
+  height: 48px;
+}
+
+.logo {
+  margin-right: 2rem;
+}
+
+/* The <nav> element is a global tag, so we must wrap it in :global(...) */
+.nav {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+/* Local classes for navigation links */
+.navLink {
+  color: #ccc;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  font-weight: 500;
+  font-size: 16px;
+}
+.navLink:hover {
+  color: #fff;
+}
+.navLinkActive {
+  color: #fff;
+  text-decoration: underline;
+  margin-right: 1.5rem;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Main content area */
+.main {
+  padding: 2rem 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+ min-height: 80vh;
+}
+
+/* Footer */
+.footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Footer links */
+.footerLink {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-size: 14px;
+}
+.footerLink:hover {
+  color: #fff;
+}
+
