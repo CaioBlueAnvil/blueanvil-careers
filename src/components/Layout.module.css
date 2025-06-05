@@ -7,10 +7,9 @@
   min-height: 100vh;  /* Fill the entire viewport */
 }
 
-/* 1) Centered container (1500px max‐width) */
+/* 1) Centered container (900px max‐width) */
 .container {
   max-width: 1500px;
-Max-height: 70px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -19,12 +18,12 @@ Max-height: 70px;
 .headerWhite {
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
-  padding: 0.3rem 0;
+  padding: 0rem 0;
 }
 
 .logo {
   display: inline-block;
-  margin-right: 14rem;
+  margin-right: 10rem;
 Margin-top: 0rem;
 Margin-botton: 0rem;
 }
