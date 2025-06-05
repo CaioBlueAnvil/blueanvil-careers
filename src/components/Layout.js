@@ -16,19 +16,15 @@ export default function Layout({ children }) {
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
             <img
-              src="/anvil.png"
+              src="/anvil.svg"
               alt="Blue Anvil Logo"
               className={styles.logoImg}
             />
           </Link>
 
           <nav className={styles.nav}>
-            <Link href="/" className={styles.navLink}>
-              Home
-            </Link>
-            <Link href="/careers" className={styles.navLinkActive}>
-              Careers
-            </Link>
+            
+      
           </nav>
         </div>
       </header>

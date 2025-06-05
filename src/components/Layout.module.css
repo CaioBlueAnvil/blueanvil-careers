@@ -7,9 +7,10 @@
   min-height: 100vh;  /* Fill the entire viewport */
 }
 
-/* 1) Centered container (800px max‐width) */
+/* 1) Centered container (1500px max‐width) */
 .container {
-  max-width: 800px;
+  max-width: 1500px;
+Max-height: 70px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -18,16 +19,18 @@
 .headerWhite {
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
-  padding: 1rem 0;
+  padding: 0.3rem 0;
 }
 
 .logo {
   display: inline-block;
-  margin-right: 2rem;
+  margin-right: 14rem;
+Margin-top: 0rem;
+Margin-botton: 0rem;
 }
 
 .logoImg {
-  height: 48px;
+  height: 100px;
 }
 
 /* NAVIGATION */
@@ -41,7 +44,7 @@
   text-decoration: none;
   margin-right: 1.5rem;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 25px;
 }
 
 .navLink:hover {
@@ -53,7 +56,7 @@
   text-decoration: underline;
   margin-right: 1.5rem;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 25px;
 }
 
 /* 3) MAIN CONTENT AREA (light gray background). 
