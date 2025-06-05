@@ -1,0 +1,140 @@
+/* src/styles/CareersPage.module.css */
+
+/* 0) Import Poppins ExtraBold */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+
+/* 1) HERO SECTION: full‐screen cracked background, positioned to show the anvil */
+.hero {
+  position: relative;                     /* so child .heroContent can be centered */
+  width: 100vw;                           /* span the entire viewport width */
+  height: 80vh;                          /* span the entire viewport height */
+  background-image: url("/cracked-bg.png"); /* your cracked‐background file must be in /public */
+  background-repeat: no-repeat;
+  background-position: center top;        /* ensure the top of that cracked image (with the anvil) is visible */
+  background-size: cover;                 /* cover the entire area without distortion */
+}
+
+/* 2) Overlay content inside the hero, centered vertically/horizontally */
+.heroContent {
+  position: absolute;                     /* position this block inside .hero (which is relative) */
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);       /* center it exactly */
+  text-align: center;
+}
+
+/* 3) The two‐line title “Blue Anvil” / “Careers” */
+.heroTitle {
+  font-family: 'Poppins', sans-serif;     /* Poppins ExtraBold */
+  font-weight: 800;                       /* ExtraBold weight */
+  font-size: 5rem;                        /* adjust up/down to taste */
+  color: #164791;                         /* your requested blue color */
+  -webkit-text-stroke: 0.5px #ffffff;     /* white outline, 0.5px thick */
+  text-stroke: 0.5px #ffffff;             /* for browsers that support text-stroke */
+  line-height: 1.1;                       /* tighten line spacing slightly */
+  margin: 0;                              /* remove default h1 margins */
+}
+
+/* 4) TAGLINE STRIP: full‐width dark gray (#95989A) bar under the hero */
+.taglineStrip {
+  width: 100vw;
+  background-color: #95989A;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.taglineStrip .taglineText {
+font-family: 'Poppins', sans-serif;                         
+  -webkit-text-stroke: 0.3px #00000;     
+  text-stroke: 0.3px #00000; 
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 650;
+  margin: 0;
+}
+/* 5) JOBS WRAPPER: full‐width mid‐gray (#95989A) background */
+.jobsWrapper {
+  width: 100vw;  
+  background-color: #95989A;
+  padding: 2rem 0;      /* vertical padding above/below the content */
+  text-align: center;
+}
+
+/* “Our Jobs” button styling */
+.jobsButton {
+font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #0070f3;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 5rem;  /* space between the button and the job cards */
+  text-decoration: none;
+}
+
+.jobsButton:hover {
+  background-color: #f0f0f0;
+}
+
+/* 6) JOB CARDS GRID: responsive layout of white cards */
+.jobsGrid {
+  display: grid;
+  grid-template-columns: 1fr;  /* single column on mobile */
+  gap: 2rem;                   /* space between cards */
+  padding: 0 1rem;             /* horizontal padding on small screens */
+  justify-items: center;       /* center cards in each row */
+margin-top: 3rem;
+}
+
+
+/* Individual job card styling */
+.jobCard {
+  background-color: #ffffff;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Job Name=2fr, Type=1fr, Location=1fr */
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;            /* fill the container’s width */
+}
+
+.jobCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Job title inside each card */
+.jobName {
+font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  color: #0070f3;
+  font-weight: 600;
+margin: 0;
+text-align: left;       /* align leftmost */
+}
+
+/* 9) Employment Type cell */
+.jobType {
+font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;  /* center the text in its cell */
+}
+/* Job location text */
+.jobLocation {
+font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #000;
+margin: 0;
+text-align: right;
+}
+
