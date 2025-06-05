@@ -5,17 +5,23 @@ import styles from "./Layout.module.css";
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Head>
         <title>Blue Anvil Careers</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <header className={styles.header}>
+      {/* ===== HEADER ===== */}
+      <header className={styles.headerWhite}>
         <div className={styles.container}>
-          <Link href="https://blueanvil.com" className={styles.logo}>
-            <img src="/logo-blueanvil.svg" alt="Blue Anvil" />
+          <Link href="/" className={styles.logo}>
+            <img
+              src="/anvil.png"
+              alt="Blue Anvil Logo"
+              className={styles.logoImg}
+            />
           </Link>
+
           <nav className={styles.nav}>
             <Link href="/" className={styles.navLink}>
               Home
@@ -27,24 +33,25 @@ export default function Layout({ children }) {
         </div>
       </header>
 
- <main className={styles.main}>
-   <div className={styles.container}>{children}</div>
- </main>
+      {/* ===== MAIN CONTENT ===== */}
+      <main className={styles.main}>{children}</main>
+
+      {/* ===== FOOTER ===== */}
       <footer className={styles.footer}>
         <div className={styles.container}>
           <p>&copy; {new Date().getFullYear()} Blue Anvil. All rights reserved.</p>
           <p>
-            <a href="https://blueanvil.com/privacy" className={styles.footerLink}>
+            <a href="/privacy" className={styles.footerLink}>
               Privacy Policy
             </a>
             {" | "}
-            <a href="https://blueanvil.com/terms" className={styles.footerLink}>
+            <a href="/terms" className={styles.footerLink}>
               Terms of Use
             </a>
           </p>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 

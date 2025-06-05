@@ -1,64 +1,69 @@
 /* src/components/Layout.module.css */
 
+/* 0) Make the entire page a column flexbox, so footer sticks to bottom */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* Fill the entire viewport */
+}
 
-/* Container to center content */
+/* 1) Centered container (800px max‐width) */
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Header */
-.header {
-  background-color: #222;
-  color: #fff;
-  padding: 1rem 0 1.5rem 0;
-}
-
-/* Logo (still local) */
-.logo img {
-  height: 48px;
+/* 2) WHITE HEADER */
+.headerWhite {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
 }
 
 .logo {
+  display: inline-block;
   margin-right: 2rem;
 }
 
-/* The <nav> element is a global tag, so we must wrap it in :global(...) */
-.nav {
-  display: inline-block;
-  margin-left: 2rem;
+.logoImg {
+  height: 48px;
 }
 
-/* Local classes for navigation links */
+/* NAVIGATION */
+.nav {
+  display: inline-block;
+  margin-left: auto;
+}
+
 .navLink {
-  color: #ccc;
+  color: #0070f3;
   text-decoration: none;
   margin-right: 1.5rem;
   font-weight: 500;
   font-size: 16px;
 }
+
 .navLink:hover {
-  color: #fff;
+  text-decoration: underline;
 }
+
 .navLinkActive {
-  color: #fff;
+  color: #000000;
   text-decoration: underline;
   margin-right: 1.5rem;
   font-weight: 600;
   font-size: 16px;
 }
 
-/* Main content area */
+/* 3) MAIN CONTENT AREA (light gray background). 
+      Give it flex:1 so it grows and pushes the footer down. */
 .main {
-  padding: 2rem 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-  background-color: #f9f9f9;
- min-height: 80vh;
+  background-color: #f0f0f0; /* very light gray */
+  flex: 1;                  /* fill available vertical space */
 }
 
-/* Footer */
+/* 4) FOOTER */
 .footer {
   background-color: #222;
   color: #ccc;
@@ -67,13 +72,12 @@
   font-size: 14px;
 }
 
-/* Footer links */
 .footerLink {
   color: #ccc;
   text-decoration: none;
   margin: 0 0.5rem;
-  font-size: 14px;
 }
+
 .footerLink:hover {
   color: #fff;
 }
