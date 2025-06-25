@@ -15,10 +15,10 @@ export default function JobDetail({ job }) {
       <div className={styles.jobContainer}>
         <h1 className={styles.jobDetailTitle}>{job["Job Name"]}</h1>
         <p className={styles.jobLocationItalic}>Location: {job["Location"]}</p>
-        <section
-          className={styles.jobDescription}
-          dangerouslySetInnerHTML={{ __html: job["Description"] }}
-        />
+        <div className={styles.jobDescription}>
+          {job["Description"]}
+        </div>
+
         <a href={job["Form URL"]} className={styles.applyButton}>
           Apply Online
         </a>

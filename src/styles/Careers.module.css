@@ -163,8 +163,9 @@ color: #555;
   color: #555;
 }
 .jobDescription {
+  white-space: pre-wrap;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0;
   color: #333;
 }
 .applyButton {
