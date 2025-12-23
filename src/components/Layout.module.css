@@ -1,86 +1,157 @@
-/* src/components/Layout.module.css */
+/* src/components/Layout.module.css
+   Blue Anvil Careers • Forge shell (matches BlueAnvil.ca vibe)
+*/
 
-/* 0) Make the entire page a column flexbox, so footer sticks to bottom */
-.pageContainer {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;  /* Fill the entire viewport */
+.pageContainer{
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* 1) Centered container (900px max‐width) */
-.container {
-  max-width: 1500px;
+/* Fixed background layers */
+.forgeBg{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -35vh;
+  height: 170vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(99,179,255,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(159,211,255,0.10) 0%, transparent 50%),
+    linear-gradient(180deg, #0B1220 0%, #0A1424 100%);
+  opacity: 0.95;
+  will-change: transform;
+}
+
+.emberGlow{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(to top, rgba(99,179,255,0.22), transparent);
+  pointer-events: none;
+  z-index: 1;
+  animation: ba-ember-pulse 4s ease-in-out infinite;
+}
+
+@keyframes ba-ember-pulse{
+  0%, 100% { opacity: 0.30; }
+  50% { opacity: 0.60; }
+}
+
+/* Sparks */
+.spark{
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #63B3FF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #63B3FF;
+  animation: ba-spark-rise 3s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes ba-spark-rise{
+  0% { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-420px) translateX(var(--drift)) scale(0); }
+}
+
+/* Shared container */
+.container{
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
 }
 
-/* 2) WHITE HEADER */
-.headerWhite {
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
-  padding: 0rem 0;
+/* Header */
+.headerWhite{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(
+    to bottom,
+    rgba(11,18,32,0.96),
+    rgba(11,18,32,0.86)
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(99,179,255,0.25);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.65);
 }
 
-.logo {
-  display: inline-block;
-  margin-right: 10rem;
-Margin-top: 0rem;
-Margin-botton: 0rem;
+.logo{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
 }
 
-.logoImg {
-  height: 100px;
+.logoImg{
+  height: 42px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 18px rgba(99,179,255,0.25));
 }
 
-/* NAVIGATION */
-.nav {
-  display: inline-block;
-  margin-left: auto;
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
-.navLink {
-  color: #0070f3;
-  text-decoration: none;
-  margin-right: 1.5rem;
-  font-weight: 500;
-  font-size: 25px;
-}
-
-.navLink:hover {
-  text-decoration: underline;
-}
-
-.navLinkActive {
-  color: #000000;
-  text-decoration: underline;
-  margin-right: 1.5rem;
-  font-weight: 600;
-  font-size: 25px;
-}
-
-/* 3) MAIN CONTENT AREA (light gray background). 
-      Give it flex:1 so it grows and pushes the footer down. */
-.main {
-  background-color: #f0f0f0; /* very light gray */
-  flex: 1;                  /* fill available vertical space */
-}
-
-/* 4) FOOTER */
-.footer {
-  background-color: #222;
-  color: #ccc;
-  padding: 1rem 0;
-  text-align: center;
+.navLink{
+  color: #9FB1D1;
+  font-weight: 700;
   font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
 }
 
-.footerLink {
-  color: #ccc;
+.navLink:hover{ color: #E6ECFF; }
+
+.navLinkActive{
+  color: #63B3FF;
+}
+
+/* Main + footer */
+.main{
+  position: relative;
+  z-index: 10;
+}
+
+.footer{
+  position: relative;
+  z-index: 10;
+  margin-top: 80px;
+  padding: 34px 0 46px;
+  color: #9FB1D1;
+  text-align: center;
+  border-top: 1px solid rgba(99,179,255,0.18);
+  background: linear-gradient(to top, rgba(99,179,255,0.06), transparent);
+}
+
+.footerLink{
+  color: #63B3FF;
+  font-weight: 700;
   text-decoration: none;
-  margin: 0 0.5rem;
+  border-bottom: 1px solid rgba(99,179,255,0.25);
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.footerLink:hover {
-  color: #fff;
+.footerLink:hover{
+  border-color: rgba(99,179,255,0.7);
+  color: #9FD3FF;
 }
 
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .emberGlow{ animation: none !important; }
+  .spark{ animation: none !important; opacity: 0.35; }
+}
