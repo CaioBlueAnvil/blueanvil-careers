@@ -1,46 +1,54 @@
-/* src/styles/globals.css */
+/* src/styles/globals.css
+   Blue Anvil Careers • Forge theme base
+*/
 
-html,
-body {
+:root{
+  --ba-bg: #0B1220;
+  --ba-bg2: #0A1424;
+  --ba-text: #E6ECFF;
+  --ba-muted: #9FB1D1;
+  --ba-blue: #63B3FF;
+  --ba-blue2: #9FD3FF;
+  --ba-border: rgba(99,179,255,0.25);
+}
+
+html, body{
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  background: var(--ba-bg);
+  color: var(--ba-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#__next{
   min-height: 100vh;
-  padding: 0;
-  margin: 0;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
 }
 
-a {
-  color: #0070f3;
+a{
+  color: inherit;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+
+p{
+  margin: 0 0 1rem;
+  line-height: 1.7;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  margin: 0 0 1rem 0;
-}
-
-p {
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-ul {
+ul{
   margin: 0;
   padding: 0;
 }
 
-li {
+li{
   list-style: none;
 }
-

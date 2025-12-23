@@ -1,140 +1,189 @@
-/* src/styles/CareersPage.module.css */
+/* src/styles/CareersPage.module.css
+   Careers index • Forge theme (matches Blue Anvil Squarespace pages)
+*/
 
-/* 0) Import Poppins ExtraBold */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
-
-/* 1) HERO SECTION: full‐screen cracked background, positioned to show the anvil */
-.hero {
-  position: relative;                     /* so child .heroContent can be centered */
-  width: 100vw;                           /* span the entire viewport width */
-  height: 80vh;                          /* span the entire viewport height */
-  background-image: url("/cracked-bg.png"); /* your cracked‐background file must be in /public */
-  background-repeat: no-repeat;
-  background-position: center top;        /* ensure the top of that cracked image (with the anvil) is visible */
-  background-size: cover;                 /* cover the entire area without distortion */
-}
-
-/* 2) Overlay content inside the hero, centered vertically/horizontally */
-.heroContent {
-  position: absolute;                     /* position this block inside .hero (which is relative) */
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);       /* center it exactly */
-  text-align: center;
-}
-
-/* 3) The two‐line title “Blue Anvil” / “Careers” */
-.heroTitle {
-  font-family: 'Poppins', sans-serif;     /* Poppins ExtraBold */
-  font-weight: 800;                       /* ExtraBold weight */
-  font-size: 5rem;                        /* adjust up/down to taste */
-  color: #164791;                         /* your requested blue color */
-  -webkit-text-stroke: 0.5px #ffffff;     /* white outline, 0.5px thick */
-  text-stroke: 0.5px #ffffff;             /* for browsers that support text-stroke */
-  line-height: 1.1;                       /* tighten line spacing slightly */
-  margin: 0;                              /* remove default h1 margins */
-}
-
-/* 4) TAGLINE STRIP: full‐width dark gray (#95989A) bar under the hero */
-.taglineStrip {
-  width: 100vw;
-  background-color: #95989A;
-  text-align: center;
-  padding: 1rem 0;
-}
-
-.taglineStrip .taglineText {
-font-family: 'Poppins', sans-serif;                         
-  -webkit-text-stroke: 0.3px #00000;     
-  text-stroke: 0.3px #00000; 
-  color: #ffffff;
-  font-size: 2.5rem;
-  font-weight: 650;
-  margin: 0;
-}
-/* 5) JOBS WRAPPER: full‐width mid‐gray (#95989A) background */
-.jobsWrapper {
-  width: 100vw;  
-  background-color: #95989A;
-  padding: 2rem 0;      /* vertical padding above/below the content */
-  text-align: center;
-}
-
-/* “Our Jobs” button styling */
-.jobsButton {
-font-family: 'Poppins', sans-serif;
-  background-color: #ffffff;
-  color: #0070f3;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-bottom: 5rem;  /* space between the button and the job cards */
-  text-decoration: none;
-}
-
-.jobsButton:hover {
-  background-color: #f0f0f0;
-}
-
-/* 6) JOB CARDS GRID: responsive layout of white cards */
-.jobsGrid {
-  display: grid;
-  grid-template-columns: 1fr;  /* single column on mobile */
-  gap: 2rem;                   /* space between cards */
-  padding: 0 1rem;             /* horizontal padding on small screens */
-  justify-items: center;       /* center cards in each row */
-margin-top: 3rem;
-}
-
-
-/* Individual job card styling */
-.jobCard {
-  background-color: #ffffff;
-  border: 2px solid #fff;
-  border-radius: 6px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr; /* Job Name=2fr, Type=1fr, Location=1fr */
-  gap: 1rem;
+.hero{
+  min-height: calc(100vh - 86px);
+  display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  width: 100%;            /* fill the container’s width */
+  justify-content: center;
+  text-align: center;
+  padding: 96px 0 72px;
+  position: relative;
+  overflow: hidden;
 }
 
-.jobCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+/* Subtle hero wash to help legibility over animated bg */
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 35%, rgba(99,179,255,0.10) 0%, transparent 55%);
+  opacity: 0.9;
+  pointer-events: none;
 }
 
-/* Job title inside each card */
-.jobName {
-font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
-  color: #0070f3;
-  font-weight: 600;
-margin: 0;
-text-align: left;       /* align leftmost */
+.heroContent{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 960px;
+  padding: 0 24px;
+  animation: ba-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* 9) Employment Type cell */
-.jobType {
-font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  color: #333;
-  font-weight: 500;
+@keyframes ba-fade-up{
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heroTitle{
   margin: 0;
-  text-align: center;  /* center the text in its cell */
-}
-/* Job location text */
-.jobLocation {
-font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  color: #000;
-margin: 0;
-text-align: right;
+  font-size: clamp(42px, 6vw, 78px);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  color: #E6ECFF;
 }
 
+/* Make the second line (Careers) pop like the forge-word */
+.heroTitle + .heroTitle{
+  color: #63B3FF;
+  text-shadow: 0 0 30px rgba(99,179,255,0.8);
+  animation: ba-forge-heat 3s ease-in-out infinite;
+}
+
+@keyframes ba-forge-heat{
+  0%, 100% { color: #63B3FF; text-shadow: 0 0 30px rgba(99,179,255,0.8); }
+  50% { color: #9FD3FF; text-shadow: 0 0 52px rgba(159,211,255,1); }
+}
+
+/* Tagline strip */
+.taglineStrip{
+  position: relative;
+  z-index: 10;
+  padding: 18px 0;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(99,179,255,0.12), rgba(11,18,32,0.0), rgba(99,179,255,0.12));
+  border-top: 1px solid rgba(99,179,255,0.18);
+  border-bottom: 1px solid rgba(99,179,255,0.18);
+}
+
+.taglineText{
+  margin: 0;
+  font-size: 18px;
+  color: #9FB1D1;
+  letter-spacing: 0.2px;
+}
+
+/* Jobs */
+.jobsWrapper{
+  position: relative;
+  z-index: 10;
+  padding: 90px 0 120px;
+}
+
+.jobsButton{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(99,179,255,0.35);
+  background: rgba(99,179,255,0.08);
+  color: #63B3FF;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.jobsGrid{
+  margin-top: 22px;
+  display: grid;
+  gap: 16px;
+}
+
+/* Job row card (3 columns) */
+.jobCard{
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 22px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(99,179,255,0.12), rgba(10,16,32,0.98));
+  border: 1px solid rgba(99,179,255,0.25);
+  border-left: 5px solid #63B3FF;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.jobCard::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99,179,255,0.16), transparent);
+  transition: left 0.55s ease;
+}
+
+.jobCard:hover{
+  transform: translateY(-6px);
+  border-color: rgba(99,179,255,0.55);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+}
+
+.jobCard:hover::before{
+  left: 120%;
+}
+
+.jobName{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #E6ECFF;
+  letter-spacing: -0.2px;
+}
+
+.jobType{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #63B3FF;
+  justify-self: center;
+}
+
+.jobLocation{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #9FB1D1;
+  justify-self: end;
+}
+
+/* Responsive */
+@media (max-width: 820px){
+  .jobsWrapper{ padding: 72px 0 90px; }
+  .jobCard{
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: left;
+  }
+  .jobType{ justify-self: start; }
+  .jobLocation{ justify-self: start; opacity: 0.95; }
+}
+
+@media (max-width: 480px){
+  .taglineText{ font-size: 16px; }
+  .jobCard{ padding: 18px 16px; }
+}
